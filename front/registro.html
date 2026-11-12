@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro — Librostore</title>
+    <link rel="stylesheet" href="dist/css/style.css">
+    <link rel="stylesheet" href="dist/css/mobile.css">
+</head>
+<body>
+    <main class="login-escena">
+        <section class="login-lado">
+            <img src="dist/media/imagen_portada.png" alt="Tu biblioteca, abierta a toda hora.">
+        </section>
+        <form id="form-registro" class="login-card">
+            <h1 data-i18n="reg_titulo">Crear cuenta</h1>
+            <p id="mensaje" class="aviso aviso-error" hidden></p>
+            <label for="nombre" data-i18n="nombre">Nombre</label>
+            <input id="nombre" required>
+            <label for="apellido" data-i18n="apellido">Apellido</label>
+            <input id="apellido" required>
+            <label for="telefono" data-i18n="telefono">Teléfono</label>
+            <input id="telefono" required>
+            <label for="ci" data-i18n="ci">Cédula</label>
+            <input id="ci" required>
+            <label for="correo" data-i18n="correo">Correo</label>
+            <input id="correo" type="email" required>
+            <label for="password" data-i18n="contrasena">Contraseña</label>
+            <input id="password" type="password" minlength="6" required>
+            <label for="repetir" data-i18n="repetir">Repetir contraseña</label>
+            <input id="repetir" type="password" minlength="6" required>
+            <button class="btn-principal" type="submit" data-i18n="crear_cuenta">Registrarme</button>
+            <div class="login-links">
+                <a href="/front/login.html" data-i18n="ingresar">Ingresar</a>
+                <a href="/front/index.html" data-i18n="inicio">Inicio</a>
+            </div>
+        </form>
+    </main>
+    <script src="dist/js/api.js"></script>
+    <script src="dist/js/i18n.js"></script>
+    <script src="dist/js/sesion.js"></script>
+    <script src="dist/js/registro.js"></script>
+</body>
+</html>

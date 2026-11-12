@@ -1,0 +1,55 @@
+entidad: rol
+
+Tipo entidad: Maestra
+
+Persona de la biblioteca. Los atributos administrador y usuario indican el acceso: un administrador también puede ser usuario. La contraseña no se guarda en texto plano: se almacena hasheada en password_hash. El correo y la cédula son únicos.
+
+[id_rol (int ai), administrador (tinyint), usuario (tinyint), nombre (varchar(100)), apellido (varchar(100)), telefono (varchar(30)), ci (varchar(20)), correo (varchar(120)), password_hash (varchar(255))]
+
+entidad: categorias
+
+Tipo entidad: Maestra
+
+Agrupa los artículos en libros, revistas, audiolibros y best sellers.
+
+[id_categoria (int ai), nombre (varchar(60)), descripcion (varchar(255) null)]
+
+entidad: autores
+
+Tipo entidad: Maestra
+
+Quien escribe o narra el artículo.
+
+[id_autor (int ai), nombre (varchar(120))]
+
+entidad: editoriales
+
+Tipo entidad: Maestra
+
+Sello que publica el artículo.
+
+[id_editorial (int ai), nombre (varchar(120)), pais (varchar(60) null)]
+
+entidad: articulos
+
+Tipo entidad: Subordinada (categorias, autores, editoriales)
+
+Título de la biblioteca: libro, revista, audiolibro o best seller. cantidad_disponible cuenta los ejemplares que todavía se pueden prestar. estado vale disponible o prestado: si la cantidad llega a cero, el estado queda prestado.
+
+[id_articulo (int ai), titulo (varchar(150)), descripcion (text), imagen (varchar(255)), precio (decimal(10,2) null), cantidad_disponible (int), estado (varchar(20)), destacado (tinyint), anio (smallint null), fecha_alta (datetime), fecha_modificacion (datetime), id_categoria (int foranea categorias:id_categoria), id_autor (int foranea autores:id_autor), id_editorial (int foranea editoriales:id_editorial)]
+
+entidad: prestamos
+
+Tipo entidad: Subordinada (rol, articulos)
+
+Préstamo de un artículo a una persona. Una persona puede tener varios préstamos activos. Un mismo artículo puede prestarse a varias personas mientras queden ejemplares. fecha_devolucion nace a 14 días y una renovación suma otros 14. estado_prestamo vale activo o devuelto.
+
+[id_prestamo (int ai), fecha_prestamo (date), fecha_devolucion (date), renovaciones (tinyint), esperando_autorizacion (tinyint), estado_prestamo (varchar(20)), id_rol (int foranea rol:id_rol), id_articulo (int foranea articulos:id_articulo)]
+
+entidad: sesiones
+
+Tipo entidad: Subordinada (rol)
+
+Sesión de ingreso. Guarda el hash del token y la fecha en que expira. No guarda la contraseña.
+
+[id_sesion (int ai), token_hash (char(64)), expira_en (datetime), creada_en (datetime), id_rol (int foranea rol:id_rol)]

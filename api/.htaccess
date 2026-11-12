@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Apache a veces no entrega el header Authorization a PHP. Lo pasamos igual.
+RewriteCond %{HTTP:Authorization} .
+RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# Si la ruta que piden es un directorio físico que existe, dejalo pasar
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Si la ruta que piden es un archivo físico que existe, dejalo pasar
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Si no existe ni el archivo ni la carpeta, mandá toda la URL al index.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+</IfModule>

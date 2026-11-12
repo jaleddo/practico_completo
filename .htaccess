@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # ====================================================
+    # 1. TRÁFICO DE LA API
+    # ====================================================
+    RewriteCond %{REQUEST_URI} ^/api/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^api/(.*)$ /api/index.php [L,QSA]
+
+
+    # ====================================================
+    # 2. TRÁFICO DEL FRONTEND
+    # ====================================================
+    RewriteRule ^$ /front/index.html [R=301,L]
+</IfModule>

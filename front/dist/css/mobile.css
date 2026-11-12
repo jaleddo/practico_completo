@@ -1,0 +1,90 @@
+@media (max-width: 768px) {
+    #gral {
+        justify-content: flex-start;
+        padding: 14px;
+    }
+
+    #contebusqueda {
+        max-width: none;
+    }
+
+    #conteloguin,
+    #btn-ingresar,
+    #btn-salir {
+        text-align: center;
+    }
+
+    #estadisticas,
+    .datos-nosotros {
+        flex-direction: column;
+    }
+
+    .encabezado-seccion {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #pie .form-control,
+    #form-boletin {
+        width: 100%;
+    }
+
+    .login-escena {
+        grid-template-columns: 1fr;
+    }
+
+    .login-lado,
+    .login-lado img {
+        min-height: 220px;
+    }
+
+    .btn-hamburguesa {
+        align-self: center;
+        margin-left: 0;
+        margin-right: 12px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    #gral {
+        justify-content: flex-start;
+    }
+
+    .btn-hamburguesa {
+        order: -1;
+        margin-left: 0;
+        margin-right: 12px;
+    }
+
+    #acciones-nav.navbar-collapse {
+        flex-basis: 100%;
+    }
+
+    #menu .acciones-nav.show {
+        margin-left: 0;
+        margin-right: auto;
+        background: #2B1D14;
+        border-radius: 14px;
+        padding: 12px;
+        margin-top: 10px;
+    }
+
+    #menu .acciones-nav .navbar-nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #menu .acciones-nav .btn-nav {
+        display: block;
+        width: 100%;
+        text-align: left;
+        background: transparent;
+        color: #EADBC9;
+        border-radius: 8px;
+    }
+
+    #menu .acciones-nav .btn-nav:hover {
+        background: rgba(234, 219, 201, 0.16);
+        color: #EADBC9;
+    }
+}

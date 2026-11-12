@@ -1,0 +1,302 @@
+.admin-body {
+    background: #f3efe8;
+}
+
+.verificando {
+    padding: 24px;
+}
+
+.admin-shell {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+}
+
+.admin-side {
+    background: #2B1D14;
+    color: #EADBC9;
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.admin-side .marca {
+    color: #F7F1E7;
+}
+
+.rol-etiqueta {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+}
+
+.menu-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-admin a {
+    color: #EADBC9;
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 8px;
+}
+
+.menu-admin a.activo,
+.menu-admin a:hover {
+    background: rgba(234, 219, 201, 0.16);
+}
+
+.menu-admin button.enlace-menu {
+    background: transparent;
+    border: 0;
+    color: #EADBC9;
+    text-align: left;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font: inherit;
+    width: 100%;
+    cursor: pointer;
+}
+
+.menu-admin button.enlace-menu:hover {
+    background: rgba(234, 219, 201, 0.16);
+}
+
+.btn-hamburguesa-side {
+    display: none;
+    background: #2B1D14;
+    color: #F7F1E7;
+    border: 0;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-weight: 700;
+    margin: 0 0 14px 0;
+}
+
+.saludo {
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+}
+
+.par-horizontal {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 56px;
+}
+
+.leyenda-espera {
+    margin: 0;
+    font-weight: 700;
+}
+
+.lista-simple {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.admin-main {
+    padding: 28px;
+}
+
+.admin-top h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+    margin-bottom: 4px;
+}
+
+.bloque {
+    background: #fffdf9;
+    border-radius: 16px;
+    padding: 22px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+    margin: 18px 0 28px;
+}
+
+.form-grid .ancho-completo {
+    grid-column: 1 / -1;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+    width: 100%;
+    border: 1px solid #EADBC9;
+    border-radius: 8px;
+    padding: 8px 10px;
+    background: #fff;
+    color: #2B1D14;
+}
+
+.form-grid .check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: end;
+}
+
+.form-grid .check input {
+    width: auto;
+}
+
+.acciones {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.acciones input {
+    width: 160px;
+    border: 1px solid #EADBC9;
+    border-radius: 8px;
+    padding: 8px 10px;
+    background: #fff;
+}
+
+.btn-admin,
+.btn-linea,
+.btn-peligro {
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-weight: 700;
+}
+
+.btn-admin {
+    background: #2B1D14;
+    color: #F7F1E7;
+    border: 0;
+}
+
+.btn-linea {
+    background: transparent;
+    border: 1px solid #2B1D14;
+    color: #2B1D14;
+}
+
+.admin-side .btn-linea {
+    border-color: #EADBC9;
+    color: #EADBC9;
+}
+
+.btn-peligro {
+    background: #8C3A2F;
+    color: #fff;
+    border: 0;
+}
+
+#vista-imagen {
+    width: 120px;
+    border-radius: 8px;
+}
+
+.tabla-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid #EADBC9;
+    vertical-align: middle;
+}
+
+.mini {
+    width: 48px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.meta {
+    margin: 4px 0 0;
+    color: #6b5346;
+    font-size: 0.9rem;
+}
+
+.acciones-fila {
+    display: flex;
+    gap: 8px;
+}
+
+.sala-lectura {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: center 68%;
+    border-radius: 16px;
+    margin-bottom: 18px;
+}
+
+.prestamo-card {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    background: #fff;
+    border: 1px solid #EADBC9;
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 14px;
+}
+
+.prestamo-card img {
+    width: 110px;
+    height: auto;
+    object-fit: contain;
+    background: #f7f1e7;
+    border-radius: 8px;
+}
+
+.prestamo-card h3 {
+    margin: 0 0 6px;
+}
+
+@media (max-width: 800px) {
+    .admin-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-side {
+        gap: 12px;
+    }
+
+    .btn-hamburguesa-side {
+        display: block;
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .admin-side {
+        display: none;
+        width: min(280px, 86vw);
+    }
+
+    .admin-shell.menu-abierto .admin-side {
+        display: flex;
+    }
+
+    .form-grid,
+    .par-horizontal {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-main {
+        padding: 16px;
+    }
+}

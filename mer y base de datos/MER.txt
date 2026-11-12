@@ -1,0 +1,66 @@
+MER — Biblioteca virtual Librostore
+
+1. Entidades y atributos
+
+rol
+    Clave primaria: id_rol
+    Atributos: administrador, usuario, nombre, apellido, telefono, ci, correo, password_hash
+    administrador y usuario son atributos de la misma persona. Los dos pueden valer 1: un administrador también puede ser usuario.
+    password_hash guarda la contraseña hasheada.
+    ci y correo no se repiten.
+
+categorias
+    Clave primaria: id_categoria
+    Atributos: nombre, descripcion
+
+autores
+    Clave primaria: id_autor
+    Atributos: nombre
+
+editoriales
+    Clave primaria: id_editorial
+    Atributos: nombre, pais
+
+articulos
+    Clave primaria: id_articulo
+    Atributos: titulo, descripcion, imagen, precio, cantidad_disponible, estado, destacado, anio, fecha_alta, fecha_modificacion
+    estado: disponible o prestado.
+    cantidad_disponible: ejemplares que todavía se pueden retirar.
+
+prestamos
+    Clave primaria: id_prestamo
+    Atributos: fecha_prestamo, fecha_devolucion, estado_prestamo
+    estado_prestamo: activo o devuelto.
+
+sesiones
+    Clave primaria: id_sesion
+    Atributos: token_hash, expira_en, creada_en
+
+2. Relaciones y cardinalidades
+
+rol 1 ——— N sesiones
+    Una persona puede abrir varias sesiones. Cada sesión pertenece a una sola persona.
+
+categorias 1 ——— N articulos
+    Una categoría agrupa varios artículos. Cada artículo tiene una categoría.
+
+autores 1 ——— N articulos
+    Un autor puede tener varios artículos. Cada artículo tiene un autor.
+
+editoriales 1 ——— N articulos
+    Una editorial publica varios artículos. Cada artículo tiene una editorial.
+
+rol N ——— N articulos, a través de prestamos
+    Una persona puede retirar varios libros, revistas, best sellers o audiolibros.
+    Un artículo puede prestarse a varias personas si queda cantidad disponible.
+    Cada préstamo une una persona con un artículo.
+    Mientras el préstamo está activo, esa persona no puede pedir otra vez el mismo título.
+    Al devolver, el ejemplar vuelve al stock y el botón del catálogo deja de decir "en tu biblioteca".
+
+3. Esquema
+
+rol ||——o{ sesiones
+rol ||——o{ prestamos }o——|| articulos
+categorias ||——o{ articulos
+autores ||——o{ articulos
+editoriales ||——o{ articulos

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librostore — tu biblioteca virtual</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="dist/css/style.css">
+    <link rel="stylesheet" href="dist/css/mobile.css">
+</head>
+<body>
+    <header>
+        <nav id="menu" class="navbar navbar-expand-lg">
+            <div id="gral" class="container-fluid">
+                <button class="navbar-toggler btn-hamburguesa" type="button" data-bs-toggle="collapse" data-bs-target="#acciones-nav" aria-controls="acciones-nav" aria-expanded="false" aria-label="Menú">Menú</button>
+                <div id="contelogo">
+                    <a id="logo" href="/front/index.html">Librostore</a>
+                    <p id="slogan" data-i18n="slogan">tu biblioteca virtual</p>
+                </div>
+                <div id="acciones-nav" class="acciones-nav collapse navbar-collapse">
+                    <div class="navbar-nav">
+                        <a class="btn-nav" href="/front/catalogo.html" data-i18n="ir_catalogo">Ir al catálogo</a>
+                        <a class="btn-nav" href="#pie" data-i18n="contacto">Contacto</a>
+                        <button id="btn-idioma" class="btn-nav" type="button" data-i18n="traducir">Traducir al inglés</button>
+                        <a id="btn-ingresar" class="btn-nav" href="/front/login.html" data-i18n="loguin">loguin</a>
+                        <a id="btn-espacio" class="btn-nav" href="/front/usuario/index.html" data-i18n="mi_espacio" hidden>mi espacio</a>
+                        <button id="btn-salir-nav" class="btn-nav" type="button" hidden data-i18n="salir">Cerrar sesión</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="portada">
+            <div class="container-fluid">
+                <div class="row align-items-center g-4">
+                    <div class="col-12 col-md-5">
+                        <p class="entrada" data-i18n="hero">Tu biblioteca, abierta a toda hora.</p>
+                        <p data-i18n="hero_texto">Leé, escuchá y descubrí libros, revistas y audiolibros desde cualquier dispositivo. Sin filas y sin esperas.</p>
+                        <div id="estadisticas">
+                            <p data-i18n="stat_libros">1.240 Libros</p>
+                            <p data-i18n="stat_revistas">320 Revistas</p>
+                            <p data-i18n="stat_audio">480 Audiolibros</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <img src="dist/media/imagen_portada.png" class="portada img-fluid" alt="Sala de lectura de Librostore">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="nosotros">
+            <div class="container-fluid">
+                <div class="row align-items-center g-4">
+                    <div class="col-12 col-md-5">
+                        <img src="dist/media/sobresonotros.png" class="portada img-fluid" alt="Lectores en la biblioteca">
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <h2 data-i18n="nosotros">Quiénes somos</h2>
+                        <p data-i18n="nosotros_texto">Una biblioteca pensada para leer sin barreras. Nacimos para acercar la lectura a todos los estudiantes y curiosos. Curamos un catálogo accesible, gratuito y disponible las 24 horas, en cualquier dispositivo.</p>
+                        <div class="datos-nosotros">
+                            <p data-i18n="lectores">+12k Lectores activos</p>
+                            <p data-i18n="acceso">24/7 Acceso abierto</p>
+                            <p data-i18n="gratis">100% Gratuito</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="generos" class="container my-5">
+            <h2 data-i18n="categorias">Categorías</h2>
+            <p data-i18n="categorias_bajada">Nuestras categorías son libros, revistas, audiolibros y best sellers.</p>
+            <div class="row row-cols-2 row-cols-md-4 g-3">
+                <div class="col text-center">
+                    <article class="alineador1">
+                        <img src="dist/media/1.png" class="img-fluid w-100 tapa" alt="Libros">
+                        <p class="mt-2 fw-bold" data-i18n="cat_libros">Libros</p>
+                    </article>
+                </div>
+                <div class="col text-center">
+                    <article class="alineador1">
+                        <img src="dist/media/revista1.png" class="img-fluid w-100 tapa" alt="Revistas">
+                        <p class="mt-2 fw-bold" data-i18n="cat_revistas">Revistas</p>
+                    </article>
+                </div>
+                <div class="col text-center">
+                    <article class="alineador1">
+                        <img src="dist/media/audiolibro1.png" class="img-fluid w-100 tapa" alt="Audiolibros">
+                        <p class="mt-2 fw-bold" data-i18n="cat_audio">Audiolibros</p>
+                    </article>
+                </div>
+                <div class="col text-center">
+                    <article class="alineador1">
+                        <img src="dist/media/4.png" class="img-fluid w-100 tapa" alt="Best sellers">
+                        <p class="mt-2 fw-bold" data-i18n="cat_best">Best sellers</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="pie" class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h5 class="fw-bold">Librostore</h5>
+                    <p data-i18n="footer_texto">Biblioteca virtual abierta para estudiantes y lectores curiosos.</p>
+                    <form id="form-boletin" class="d-flex gap-2 mt-3 flex-wrap">
+                        <label class="visualmente-oculto" for="email-boletin" data-i18n="tu_email">Tu email</label>
+                        <input id="email-boletin" type="email" class="form-control" data-i18n-ph="tu_email" placeholder="Tu email" required>
+                        <button id="suscribir" type="submit" data-i18n="suscribir">Suscribirse</button>
+                    </form>
+                    <p id="aviso-boletin" class="mt-2 mb-0"></p>
+                </div>
+                <div class="col-md-6" id="contacto">
+                    <h5 class="fw-bold" data-i18n="contacto">Contacto</h5>
+                    <p class="mb-1"><a href="mailto:administracion@vibliotecavirtual.com">administracion@vibliotecavirtual.com</a></p>
+                    <p class="mb-1">Av. Lectura 1240, Piso 2</p>
+                    <p class="mb-0">Instagram · YouTube · X</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="dist/js/api.js"></script>
+    <script src="dist/js/i18n.js"></script>
+    <script src="dist/js/sesion.js"></script>
+    <script src="dist/js/nav.js"></script>
+    <script src="dist/js/landing.js"></script>
+</body>
+</html>

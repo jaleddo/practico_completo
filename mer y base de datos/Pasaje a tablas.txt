@@ -1,0 +1,67 @@
+Pasaje a tablas — Biblioteca virtual Librostore
+
+El MER pasa a estas tablas. La clave primaria identifica cada fila. La clave foránea apunta a la clave primaria de la tabla nombrada.
+
+Tabla rol
+    PK: id_rol INT AUTO_INCREMENT
+    administrador TINYINT(1) NOT NULL
+    usuario TINYINT(1) NOT NULL
+    nombre VARCHAR(100) NOT NULL
+    apellido VARCHAR(100) NOT NULL
+    telefono VARCHAR(30) NOT NULL
+    ci VARCHAR(20) NOT NULL UNIQUE
+    correo VARCHAR(120) NOT NULL UNIQUE
+    password_hash VARCHAR(255) NOT NULL
+    La contraseña se guarda hasheada. administrador y usuario conviven en la misma fila: un administrador puede ser también usuario.
+
+Tabla sesiones
+    PK: id_sesion INT AUTO_INCREMENT
+    FK: id_rol → rol.id_rol (ON DELETE CASCADE)
+    token_hash CHAR(64) NOT NULL UNIQUE
+    expira_en DATETIME NOT NULL
+    creada_en DATETIME NOT NULL
+    Relación: sesiones N : 1 rol
+
+Tabla categorias
+    PK: id_categoria INT AUTO_INCREMENT
+    nombre VARCHAR(60) NOT NULL UNIQUE
+    descripcion VARCHAR(255) NULL
+
+Tabla autores
+    PK: id_autor INT AUTO_INCREMENT
+    nombre VARCHAR(120) NOT NULL UNIQUE
+
+Tabla editoriales
+    PK: id_editorial INT AUTO_INCREMENT
+    nombre VARCHAR(120) NOT NULL UNIQUE
+    pais VARCHAR(60) NULL
+
+Tabla articulos
+    PK: id_articulo INT AUTO_INCREMENT
+    FK: id_categoria → categorias.id_categoria
+    FK: id_autor → autores.id_autor
+    FK: id_editorial → editoriales.id_editorial
+    titulo VARCHAR(150) NOT NULL
+    descripcion TEXT NOT NULL
+    imagen VARCHAR(255) NOT NULL
+    precio DECIMAL(10,2) NULL
+    cantidad_disponible INT NOT NULL
+    estado VARCHAR(20) NOT NULL  — disponible o prestado
+    destacado TINYINT(1) NOT NULL
+    anio SMALLINT NULL
+    fecha_alta DATETIME NOT NULL
+    fecha_modificacion DATETIME NOT NULL
+    Relación: articulos N : 1 categorias, N : 1 autores, N : 1 editoriales
+    Si cantidad_disponible llega a 0, estado queda prestado. Si hay ejemplares, estado queda disponible.
+
+Tabla prestamos
+    PK: id_prestamo INT AUTO_INCREMENT
+    FK: id_rol → rol.id_rol (ON DELETE CASCADE)
+    FK: id_articulo → articulos.id_articulo (ON DELETE CASCADE)
+    fecha_prestamo DATE NOT NULL
+    fecha_devolucion DATE NOT NULL
+    estado_prestamo VARCHAR(20) NOT NULL  — activo o devuelto
+    Relación: esta tabla resuelve el muchos a muchos entre rol y articulos.
+    Una fila es un préstamo de un artículo a una persona.
+    Varias filas con el mismo id_articulo y distinto id_rol son varios usuarios con el mismo título, siempre que haya ejemplares.
+    Varias filas con el mismo id_rol son varios títulos retirados por la misma persona.

@@ -1,0 +1,387 @@
+:root {
+    --tinta: #2B1D14;
+    --crema: #F7F1E7;
+    --arena: #EADBC9;
+    --papel: #fffdf9;
+}
+
+body {
+    margin: 0;
+    color: var(--tinta);
+    background: var(--crema);
+    font-family: "Segoe UI", sans-serif;
+}
+
+#menu {
+    background-color: var(--arena);
+}
+
+#gral {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 28px;
+}
+
+.marca {
+    font-family: Georgia, "Times New Roman", serif;
+    color: inherit;
+    text-decoration: none;
+}
+
+#logo {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+    color: var(--tinta);
+    text-decoration: none;
+    line-height: 1;
+}
+
+#slogan {
+    margin: 0;
+}
+
+#contebusqueda {
+    flex: 1;
+    max-width: 440px;
+}
+
+#buscador,
+.form-control {
+    width: 100%;
+    border: 1px solid var(--tinta);
+    border-radius: 999px;
+    padding: 8px 16px;
+    background: #fff;
+    color: var(--tinta);
+}
+
+#btn-ingresar,
+.btn-principal,
+.btn-reservar,
+#suscribir {
+    display: inline-block;
+    background: var(--tinta);
+    color: var(--arena);
+    text-decoration: none;
+    border: 0;
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-weight: 700;
+}
+
+.btn-reservar {
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-reservar:disabled {
+    background: #8d7b6e;
+}
+
+#portada,
+#nosotros {
+    background-color: var(--crema);
+    padding: 28px 8px 40px;
+}
+
+.entrada {
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+#estadisticas,
+.datos-nosotros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#estadisticas p,
+.datos-nosotros p {
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 0;
+    font-weight: 700;
+}
+
+#portada img.portada,
+#nosotros img.portada {
+    width: 100%;
+    max-height: 460px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+#catalogo h2,
+#generos h2,
+#nosotros h2 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.encabezado-seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 12px;
+}
+
+.btn-texto {
+    background: transparent;
+    border: 0;
+    color: var(--tinta);
+    font-weight: 700;
+    text-decoration: underline;
+    padding: 0 0 18px;
+}
+
+.alineador1 {
+    background: var(--papel);
+    border-radius: 14px;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(43, 29, 20, 0.06);
+}
+
+.tapa {
+    width: 100%;
+    height: 320px;
+    object-fit: contain;
+    object-position: center;
+    background: #f7f1e7;
+    border-radius: 8px;
+}
+
+.sin-portada {
+    min-height: 220px;
+    display: grid;
+    place-items: center;
+    padding: 16px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.titulo-item {
+    font-size: 1rem;
+    margin: 0.7rem 0 0.2rem;
+}
+
+.meta-item,
+.desc-item {
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+}
+
+.desc-item {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.filtro-genero {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    color: inherit;
+}
+
+.filtro-genero img {
+    border-radius: 12px;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.filtro-genero.activo img {
+    outline: 3px solid var(--tinta);
+    outline-offset: 3px;
+}
+
+#pie {
+    background-color: var(--tinta);
+    color: var(--arena);
+}
+
+#pie .form-control {
+    max-width: 280px;
+    background: #fff;
+}
+
+#lista-catalogo > .col {
+    display: flex;
+    align-items: stretch;
+}
+
+#lista-catalogo > .col > .alineador1 {
+    flex: 1 1 auto;
+    height: auto;
+}
+
+.btn-hamburguesa {
+    background: var(--tinta);
+    color: var(--crema);
+    border: 0;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.btn-hamburguesa:focus {
+    box-shadow: none;
+}
+
+.acciones-nav .navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.leyenda-catalogo {
+    margin: 0;
+    margin-top: auto;
+    font-weight: 700;
+}
+
+.btn-nav,
+#btn-ingresar,
+#btn-salir-nav {
+    display: inline-block;
+    background: var(--tinta);
+    color: var(--arena);
+    text-decoration: none;
+    border: 0;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-weight: 700;
+}
+
+#pie a {
+    color: var(--arena);
+}
+
+.login-escena {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+}
+
+.login-lado {
+    background: var(--tinta);
+    color: var(--arena);
+    padding: 0;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.login-lado img {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+.login-card {
+    background: #fff;
+    margin: auto;
+    width: min(460px, calc(100% - 32px));
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 16px 40px rgba(43, 29, 20, 0.08);
+}
+
+.login-card h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    margin-bottom: 16px;
+}
+
+.login-card label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.login-card input {
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    border: 1px solid var(--arena);
+    border-radius: 10px;
+}
+
+.login-card .btn-principal {
+    width: 100%;
+}
+
+.login-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.login-links a {
+    display: block;
+    text-align: center;
+    background: var(--arena);
+    color: var(--tinta);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 10px 14px;
+}
+
+.aviso {
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+.aviso-error {
+    background: #f8e6e2;
+}
+
+.aviso-ok {
+    background: #e5f2e9;
+}
+
+.panel-usuario {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 720px;
+}
+
+.etiqueta-rol {
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6b5346;
+}
+
+.visualmente-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+:focus-visible {
+    outline: 3px solid var(--tinta);
+    outline-offset: 2px;
+}

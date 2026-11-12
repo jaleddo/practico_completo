@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis libros — Librostore</title>
+    <link rel="stylesheet" href="../dist/css/style.css">
+    <link rel="stylesheet" href="../dist/css/admin.css">
+</head>
+<body class="admin-body">
+    <p id="verificando" class="verificando">Comprobando la sesión...</p>
+    <div id="app-usuario" class="admin-shell" hidden>
+        <aside class="admin-side">
+            <a class="marca" href="/front/index.html">Librostore</a>
+            <nav class="menu-admin" aria-label="Usuario">
+                <a href="#mis-libros" class="activo" data-i18n="mis_libros">Mis libros</a>
+                <a href="/front/catalogo.html" data-i18n="ir_catalogo">Ir al catálogo</a>
+                <a href="/front/index.html#pie" data-i18n="contacto">Contacto</a>
+                <button id="btn-idioma" class="enlace-menu" type="button" data-i18n="traducir">Traducir al inglés</button>
+                <button id="btn-salir" class="enlace-menu" type="button" data-i18n="salir">Cerrar sesión</button>
+            </nav>
+        </aside>
+        <div class="admin-main">
+            <button id="btn-menu-lateral" class="btn-hamburguesa-side" type="button">Menú</button>
+            <img class="sala-lectura" src="/front/dist/media/sala-lectura.jpg" alt="Sala de lectura con plantas y un café">
+            <section id="mis-libros" class="bloque">
+                <h1 data-i18n="mis_libros">Mis libros</h1>
+                <div id="lista-prestamos"></div>
+            </section>
+        </div>
+    </div>
+    <script src="../dist/js/api.js"></script>
+    <script src="../dist/js/i18n.js"></script>
+    <script src="../dist/js/sesion.js"></script>
+    <script src="../dist/js/usuario.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración — Librostore</title>
+    <link rel="stylesheet" href="../dist/css/style.css">
+    <link rel="stylesheet" href="../dist/css/admin.css">
+</head>
+<body class="admin-body">
+    <p id="verificando" class="verificando">Comprobando permisos...</p>
+    <div id="app-admin" class="admin-shell" hidden>
+        <aside class="admin-side">
+            <a class="marca" href="/front/index.html">Librostore</a>
+            <p class="rol-etiqueta">Administración</p>
+            <nav class="menu-admin" aria-label="Administración">
+                <a href="#articulos" class="activo" data-panel="articulos" data-i18n="articulos_admin">Artículos</a>
+                <a href="#renovaciones" data-panel="renovaciones">renovaciones pendientes</a>
+                <a href="#usuarios" data-panel="usuarios">Usuarios</a>
+                <a href="#administradores" data-panel="administradores">administradores</a>
+                <a href="/front/catalogo.html" data-i18n="ir_catalogo">Ir al catálogo</a>
+                <a href="/front/index.html#pie" data-i18n="contacto">Contacto</a>
+                <button id="btn-idioma" class="enlace-menu" type="button" data-i18n="traducir">Traducir al inglés</button>
+                <button id="btn-salir" class="enlace-menu" type="button" data-i18n="salir">Cerrar sesión</button>
+            </nav>
+        </aside>
+        <div class="admin-main">
+            <button id="btn-menu-lateral" class="btn-hamburguesa-side" type="button">Menú</button>
+            <header class="admin-top">
+                <p id="saludo" class="saludo"></p>
+                <h1 data-i18n="administracion">administracion</h1>
+            </header>
+            <section id="articulos" class="bloque">
+                <h2>Artículos de la biblioteca</h2>
+                <p>Lo que agregues, modifiques o elimines queda en la base y se refleja en el catálogo público.</p>
+                <p id="aviso-admin" class="aviso" hidden></p>
+                <form id="form-articulo" class="form-grid">
+                    <input id="id_articulo" type="hidden">
+                    <div class="par-horizontal">
+                        <div>
+                            <label for="titulo">Título</label>
+                            <input id="titulo" maxlength="150" required>
+                        </div>
+                        <div>
+                            <label for="anio">Año</label>
+                            <input id="anio" type="number" min="1000" max="2100">
+                        </div>
+                    </div>
+                    <div class="ancho-completo">
+                        <label for="descripcion">Descripción</label>
+                        <textarea id="descripcion" rows="4" maxlength="4000" required></textarea>
+                    </div>
+                    <div>
+                        <label for="id_categoria">Categoría</label>
+                        <select id="id_categoria" required></select>
+                    </div>
+                    <div>
+                        <label for="nueva_categoria">O una categoría nueva</label>
+                        <input id="nueva_categoria" maxlength="60" placeholder="Opcional">
+                    </div>
+                    <div>
+                        <label for="id_autor">Autor</label>
+                        <select id="id_autor" required></select>
+                    </div>
+                    <div>
+                        <label for="nuevo_autor">O un autor nuevo</label>
+                        <input id="nuevo_autor" maxlength="120" placeholder="Opcional">
+                    </div>
+                    <div>
+                        <label for="id_editorial">Editorial</label>
+                        <select id="id_editorial" required></select>
+                    </div>
+                    <div>
+                        <label for="nueva_editorial">O una editorial nueva</label>
+                        <input id="nueva_editorial" maxlength="120" placeholder="Opcional">
+                    </div>
+                    <div>
+                        <label for="cantidad">Cantidad disponible</label>
+                        <input id="cantidad" type="number" min="0" value="1" required>
+                    </div>
+                    <div>
+                        <label for="estado">Estado</label>
+                        <select id="estado" required>
+                            <option value="disponible">Disponible</option>
+                            <option value="prestado">Prestado</option>
+                        </select>
+                    </div>
+                    <div class="check">
+                        <input id="destacado" type="checkbox">
+                        <label for="destacado">Best seller</label>
+                    </div>
+                    <div>
+                        <label for="imagen-existente">Imagen de la biblioteca</label>
+                        <select id="imagen-existente"></select>
+                    </div>
+                    <div>
+                        <label for="imagen-archivo">O subir otra imagen</label>
+                        <input id="imagen-archivo" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+                    </div>
+                    <div class="ancho-completo">
+                        <img id="vista-imagen" alt="Vista previa" hidden>
+                    </div>
+                    <div class="acciones ancho-completo">
+                        <button id="btn-guardar" class="btn-admin" type="submit">Agregar artículo</button>
+                        <button id="btn-cancelar" class="btn-linea" type="button" hidden>Cancelar edición</button>
+                    </div>
+                </form>
+
+                <div class="tabla-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tapa</th>
+                                <th>Artículo</th>
+                                <th>Categoría</th>
+                                <th>Estado</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpo-tabla"></tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="renovaciones" class="bloque" hidden>
+                <h2>renovaciones pendientes</h2>
+                <p>Cada autorización suma una semana más al préstamo.</p>
+                <div id="lista-renovaciones"></div>
+            </section>
+            <section id="usuarios" class="bloque" hidden>
+                <h2>Usuarios</h2>
+                <p id="cantidad-usuarios"></p>
+                <p id="aviso-usuarios" class="aviso" hidden></p>
+                <form id="form-usuario" class="form-grid">
+                    <div>
+                        <label for="u-nombre">Nombre</label>
+                        <input id="u-nombre" required>
+                    </div>
+                    <div>
+                        <label for="u-apellido">Apellido</label>
+                        <input id="u-apellido" required>
+                    </div>
+                    <div>
+                        <label for="u-telefono">Teléfono</label>
+                        <input id="u-telefono" required>
+                    </div>
+                    <div>
+                        <label for="u-ci">Cédula</label>
+                        <input id="u-ci" required>
+                    </div>
+                    <div>
+                        <label for="u-correo">Correo</label>
+                        <input id="u-correo" type="email" required>
+                    </div>
+                    <div class="acciones ancho-completo">
+                        <button class="btn-admin" type="submit">Agregar usuario</button>
+                        <input id="baja-ci" placeholder="Cédula" aria-label="Cédula para eliminar">
+                        <button id="btn-baja-usuario" class="btn-peligro" type="button">Eliminar usuario</button>
+                    </div>
+                </form>
+                <div id="lista-usuarios"></div>
+            </section>
+            <section id="administradores" class="bloque" hidden>
+                <h2>administradores</h2>
+                <p id="aviso-admins" class="aviso" hidden></p>
+                <form id="form-admin" class="form-grid">
+                    <div>
+                        <label for="a-nombre">Nombre</label>
+                        <input id="a-nombre" required>
+                    </div>
+                    <div>
+                        <label for="a-apellido">Apellido</label>
+                        <input id="a-apellido" required>
+                    </div>
+                    <div>
+                        <label for="a-telefono">Teléfono</label>
+                        <input id="a-telefono" required>
+                    </div>
+                    <div>
+                        <label for="a-ci">Cédula</label>
+                        <input id="a-ci" required>
+                    </div>
+                    <div>
+                        <label for="a-correo">Correo</label>
+                        <input id="a-correo" type="email" required>
+                    </div>
+                    <div class="acciones ancho-completo">
+                        <button class="btn-admin" type="submit">Agregar administrador</button>
+                        <input id="baja-admin-ci" placeholder="Cédula" aria-label="Cédula del administrador">
+                        <button id="btn-baja-admin" class="btn-peligro" type="button">Eliminar administrador</button>
+                    </div>
+                </form>
+                <div id="lista-admins"></div>
+            </section>
+        </div>
+    </div>
+    <script src="../dist/js/api.js"></script>
+    <script src="../dist/js/i18n.js"></script>
+    <script src="../dist/js/sesion.js"></script>
+    <script src="../dist/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo — Librostore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="dist/css/style.css">
+    <link rel="stylesheet" href="dist/css/mobile.css">
+</head>
+<body>
+    <header>
+        <nav id="menu" class="navbar navbar-expand-lg">
+            <div id="gral" class="container-fluid">
+                <button class="navbar-toggler btn-hamburguesa" type="button" data-bs-toggle="collapse" data-bs-target="#acciones-nav" aria-controls="acciones-nav" aria-expanded="false" aria-label="Menú">Menú</button>
+                <div id="contelogo">
+                    <a id="logo" href="/front/index.html">Librostore</a>
+                    <p id="slogan" data-i18n="slogan">tu biblioteca virtual</p>
+                </div>
+                <div id="contebusqueda">
+                    <label class="visualmente-oculto" for="buscador" data-i18n="buscar">Buscar</label>
+                    <input id="buscador" type="search" data-i18n-ph="buscar" placeholder="Buscá por título, autor o categoría">
+                </div>
+                <div id="acciones-nav" class="acciones-nav collapse navbar-collapse">
+                    <div class="navbar-nav">
+                        <a id="btn-espacio" class="btn-nav" href="/front/usuario/index.html" data-i18n="mi_espacio">mi espacio</a>
+                        <button id="btn-salir-nav" class="btn-nav" type="button" hidden data-i18n="salir">Cerrar sesión</button>
+                        <a class="btn-nav" href="#pie" data-i18n="contacto">Contacto</a>
+                        <button id="btn-idioma" class="btn-nav" type="button" data-i18n="traducir">Traducir al inglés</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="catalogo" class="container my-5">
+            <h2 data-i18n="catalogo">Catálogo</h2>
+            <p data-i18n="catalogo_bajada">Libros, revistas, audiolibros y best sellers</p>
+            <p id="resultado-catalogo" class="resultado-catalogo">Cargando el catálogo...</p>
+            <div id="lista-catalogo" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3"></div>
+        </section>
+    </main>
+    <footer id="pie" class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h5 class="fw-bold">Librostore</h5>
+                    <p data-i18n="footer_texto">Biblioteca virtual abierta para estudiantes y lectores curiosos.</p>
+                </div>
+                <div class="col-md-6" id="contacto">
+                    <h5 class="fw-bold" data-i18n="contacto">Contacto</h5>
+                    <p class="mb-1"><a href="mailto:administracion@vibliotecavirtual.com">administracion@vibliotecavirtual.com</a></p>
+                    <p class="mb-1">Av. Lectura 1240, Piso 2</p>
+                    <p class="mb-0">Instagram · YouTube · X</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="dist/js/api.js"></script>
+    <script src="dist/js/i18n.js"></script>
+    <script src="dist/js/sesion.js"></script>
+    <script src="dist/js/nav.js"></script>
+    <script src="dist/js/catalogo.js"></script>
+</body>
+</html>
